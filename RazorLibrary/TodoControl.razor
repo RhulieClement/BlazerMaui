@@ -1,0 +1,18 @@
+﻿<EditForm Model="@todo">
+    <div class="mb-3">
+        <label for="todoItem" class="form-label">ToDo Item</label>
+        <InputText @bind-Value="todo.TodoItem" class="form-control" id="todoItem" />
+        <button class="btn btn-primary" @onclick="AddTodo">Add</button>
+    </div>
+</EditForm>
+
+@code {
+    private List<TodoModel> todos = new List<TodoModel>();
+    private TodoModel todo = new TodoModel();
+
+    private void AddTodo()
+    {
+        todos.Add(todo);
+        todo = new();
+    }
+}
